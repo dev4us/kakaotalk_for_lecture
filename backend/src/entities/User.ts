@@ -20,7 +20,7 @@ class User extends BaseEntity {
   @Column({ type: "text", nullable: false })
   username: string;
 
-  @Column({ type: "text", nullable: false })
+  @Column({ type: "text", nullable: true })
   profilePhoto: string;
 
   @OneToMany(
