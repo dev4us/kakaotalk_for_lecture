@@ -5,6 +5,7 @@ import {
   Column,
   OneToMany
 } from "typeorm";
+import bcrypt from "bcrypt";
 
 @Entity()
 class User extends BaseEntity {
@@ -28,6 +29,10 @@ class User extends BaseEntity {
     user => user.friends
   )
   friends: User[];
+
+  public comparePassword(password: string): Promise<boolean> {
+    return bcrypt.compare(password, this.password);
+  }
 }
 
 export default User;
