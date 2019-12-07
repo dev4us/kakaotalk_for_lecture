@@ -1,0 +1,11 @@
+type Message {
+  id: Int!
+  text: String
+  sendTo: User
+  sendBy: User
+  createdAt: String!
+}
+
+type Query {
+  message: Message
+}

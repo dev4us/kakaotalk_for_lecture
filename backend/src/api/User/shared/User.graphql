@@ -1,0 +1,12 @@
+type User {
+  id: Int!
+  email: String!
+  password: String!
+  username: String!
+  profilePhoto: String
+  friends: [User]
+}
+
+type Query {
+  user: User
+}

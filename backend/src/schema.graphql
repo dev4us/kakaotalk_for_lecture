@@ -1,4 +1,21 @@
+type Message {
+  id: Int!
+  text: String
+  sendTo: User
+  sendBy: User
+  createdAt: String!
+}
+
 type Query {
-  sayBye: String!
-  sayHello: String!
+  message: Message
+  user: User
+}
+
+type User {
+  id: Int!
+  email: String!
+  password: String!
+  username: String!
+  profilePhoto: String
+  friends: [User]
 }
