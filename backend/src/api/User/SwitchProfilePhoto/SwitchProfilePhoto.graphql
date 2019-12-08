@@ -1,0 +1,8 @@
+type SwitchProfilePhotoResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  SwitchProfilePhoto(profilePhoto: String!): SwitchProfilePhotoResponse!
+}

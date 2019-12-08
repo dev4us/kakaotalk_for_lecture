@@ -29,10 +29,16 @@ type SignInResponse {
 type Mutation {
   SignIn(email: String!, password: String!): SignInResponse!
   SignUp(email: String!, password: String!, username: String!): SignUpResponse!
+  SwitchProfilePhoto(profilePhoto: String!): SwitchProfilePhotoResponse!
 }
 
 type SignUpResponse {
   ok: Boolean!
   error: String
   token: String
+}
+
+type SwitchProfilePhotoResponse {
+  ok: Boolean!
+  error: String
 }

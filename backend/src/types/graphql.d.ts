@@ -1,4 +1,4 @@
-export const typeDefs = ["type Message {\n  id: Int!\n  text: String\n  sendTo: User\n  sendBy: User\n  createdAt: String!\n}\n\ntype Query {\n  message: Message\n  user: User\n}\n\ntype User {\n  id: Int!\n  email: String!\n  password: String!\n  username: String!\n  profilePhoto: String\n  friends: [User]\n}\n\ntype SignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype Mutation {\n  SignIn(email: String!, password: String!): SignInResponse!\n  SignUp(email: String!, password: String!, username: String!): SignUpResponse!\n}\n\ntype SignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n"];
+export const typeDefs = ["type Message {\n  id: Int!\n  text: String\n  sendTo: User\n  sendBy: User\n  createdAt: String!\n}\n\ntype Query {\n  message: Message\n  user: User\n}\n\ntype User {\n  id: Int!\n  email: String!\n  password: String!\n  username: String!\n  profilePhoto: String\n  friends: [User]\n}\n\ntype SignInResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype Mutation {\n  SignIn(email: String!, password: String!): SignInResponse!\n  SignUp(email: String!, password: String!, username: String!): SignUpResponse!\n  SwitchProfilePhoto(profilePhoto: String!): SwitchProfilePhotoResponse!\n}\n\ntype SignUpResponse {\n  ok: Boolean!\n  error: String\n  token: String\n}\n\ntype SwitchProfilePhotoResponse {\n  ok: Boolean!\n  error: String\n}\n"];
 /* tslint:disable */
 
 export interface Query {
@@ -26,6 +26,7 @@ export interface User {
 export interface Mutation {
   SignIn: SignInResponse;
   SignUp: SignUpResponse;
+  SwitchProfilePhoto: SwitchProfilePhotoResponse;
 }
 
 export interface SignInMutationArgs {
@@ -39,6 +40,10 @@ export interface SignUpMutationArgs {
   username: string;
 }
 
+export interface SwitchProfilePhotoMutationArgs {
+  profilePhoto: string;
+}
+
 export interface SignInResponse {
   ok: boolean;
   error: string | null;
@@ -49,4 +54,9 @@ export interface SignUpResponse {
   ok: boolean;
   error: string | null;
   token: string | null;
+}
+
+export interface SwitchProfilePhotoResponse {
+  ok: boolean;
+  error: string | null;
 }
